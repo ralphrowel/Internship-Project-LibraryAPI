@@ -26,7 +26,6 @@ schema_view = get_schema_view(
         DRF = Django Rest Framework
         Pytest = test runner
         """,
-        contact=openapi.Contact(email="support@libraryapi.com"),
     ),
     public=True,
     permission_classes=(permissions.AllowAny,),
@@ -42,4 +41,13 @@ SWAGGER_SETTINGS = {
             'in': 'header'
         }
     },
+}
+SWAGGER_SETTINGS = {
+    "TAGS_SORTER": "manual",
+    "TAGS": [
+        {"name": "Users", "description": "Manage users and registration"},
+        {"name": "Token", "description": "JWT Authentication (login/refresh)"},
+        {"name": "Books", "description": "Manage library books"},
+        {"name": "Reviews", "description": "Book reviews"},
+    ],
 }

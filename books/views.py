@@ -1,4 +1,4 @@
-from rest_framework import viewsets
+from rest_framework import viewsets, permissions
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from .models import Book
 from .serializers import BookSerializer
@@ -7,6 +7,7 @@ from permissions.custom_permissions import IsLibrarian, IsAdmin
 class BookViewSet(viewsets.ModelViewSet):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
+    permission_classes = [permissions.IsAuthenticated, IsLibrarian]
 
     def get_permissions(self):
         if self.action in ['create', 'update', 'partial_update']:
@@ -18,3 +19,6 @@ class BookViewSet(viewsets.ModelViewSet):
         else:
             permission_classes = [IsAuthenticated]
         return [permission() for permission in permission_classes]
+    
+    class Meta:
+        swagger_tags = ["Books"]

@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'books',
     'users',
     'permissions',
+    'reviews',
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
@@ -52,6 +54,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
 ]
 
 ROOT_URLCONF = 'libraryapi.urls'
@@ -144,3 +148,9 @@ SWAGGER_SETTINGS = {
     },
 }
 AUTH_USER_MODEL = 'users.User'
+CORS_ALLOW_ALL_ORIGINS = True
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8000",
+    "http://127.0.0.1:8000",
+]

@@ -4,6 +4,11 @@ __pycache__/
 *.pyo
 *.pyd
 
+# Virtual environments
+env/
+venv/
+.venv/
+
 # Django local database
 db.sqlite3
 
@@ -11,9 +16,7 @@ db.sqlite3
 media/
 staticfiles/
 
-# Virtual environment files
-env/
-venv/
+# Pipenv
 Pipfile.lock
 
 # IDE/editor files
@@ -23,3 +26,6 @@ Pipfile.lock
 # OS files
 .DS_Store
 Thumbs.db
+
+# Pytest cache
+.pytest_cache/

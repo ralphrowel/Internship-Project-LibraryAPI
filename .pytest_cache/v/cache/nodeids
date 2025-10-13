@@ -1,0 +1,7 @@
+[
+  "books/tests/test_books.py::test_create_book",
+  "books/tests/test_books.py::test_delete_book",
+  "books/tests/test_books.py::test_get_books_authorized",
+  "books/tests/test_books.py::test_get_books_unauthorized",
+  "books/tests/test_books.py::test_update_book"
+]

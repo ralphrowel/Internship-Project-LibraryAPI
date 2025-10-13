@@ -83,10 +83,15 @@ WSGI_APPLICATION = 'libraryapi.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'libraryapi_db',
+        'USER': 'postgres',
+        'PASSWORD': 'March282004.',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
+
 
 
 # Password validation

@@ -15,7 +15,6 @@ class Book(models.Model):
     publication_date = models.DateField(null=True, blank=True)
     author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='books')
 
-    # new fields from booktype
     language = models.ForeignKey(Language, on_delete=models.SET_NULL, null=True)
     categories = models.ManyToManyField(Category, blank=True)
     genres = models.ManyToManyField(Genre, blank=True)

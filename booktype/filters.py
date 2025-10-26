@@ -1,18 +1,15 @@
-from django_filters import rest_framework as filters
+import django_filters
 from .models import Book
 
-
-class BookFilter(filters.FilterSet):
-    # Filter books published between two dates
-    publication_date = filters.DateFromToRangeFilter()
-    # Partial (case-insensitive) matches
-    genre = filters.CharFilter(field_name='book_type__genre__name', lookup_expr='icontains')
-    language = filters.CharFilter(field_name='book_type__language__name', lookup_expr='icontains')
-    category = filters.CharFilter(field_name='book_type__category__name', lookup_expr='icontains')
-
+class BookFilter(django_filters.FilterSet):
     class Meta:
         model = Book
-        fields = ['genre', 'language', 'category', 'publication_date']
+        fields = {
+            'book_type__genre__name': ['exact', 'icontains'],
+            'book_type__language__name': ['exact'],
+            'publication_date': ['year', 'gte', 'lte'],
+        }
+
 
 # /api/books/?genre=fantasy
 # /api/books/?language=english
